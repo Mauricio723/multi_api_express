@@ -1,0 +1,32 @@
+{
+  "name": "multi_api_express",
+  "version": "1.0.0",
+  "description": "multiproyecto api en express",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "dev-01": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mauricio723/multi_api_express.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "API"
+  ],
+  "author": "Salvador Mauricio Vilches Jerez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mauricio723/multi_api_express/issues"
+  },
+  "homepage": "https://github.com/Mauricio723/multi_api_express#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
