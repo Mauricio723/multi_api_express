@@ -5,7 +5,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev-01": "nodemon app.js"
   },
   "repository": {
@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/Mauricio723/multi_api_express#readme",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "mysql2": "^3.11.4"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"

@@ -1,6 +1,6 @@
 import express from "express";
 import { tiendaRouter } from "./routes/rutas_tienda.js";
-
+//import { createTiendaRouter } from "./routes/rutas_tienda.js"
 const app = express();
 
 app.use(express.json());

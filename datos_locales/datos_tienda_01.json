@@ -1,26 +1,104 @@
 [
     {
-        "id": 1,
-        "nombre": "producto tienda 01",
-        "descripcion": "descripción para producto 01",
-        "precio": 100
-    },
+        "id_vendedor": 1, 
+        "nombre": "nombre vendedor 01", 
+        "productos": [
+            {
+                "id": 1,
+                "nombre": "producto tienda 01 vendedor 01",
+                "descripcion": "descripción para producto 01",
+                "imagen_url": "url/imagen_producto_01",
+                "precio": 100
+            },
+            {
+                "id": 2,
+                "nombre": "producto tienda 02 vendedor 01",
+                "descripcion": "descripción para producto 02",
+                "imagen_url": "url/imagen_producto_02",
+                "precio": 275
+            },
+            {
+                "id": 3,
+                "nombre": "producto tienda 03 vendedor 01",
+                "descripcion": "descripción para producto 03",
+                "imagen_url": "url/imagen_producto_03",
+                "precio": 120
+            },
+            {
+                "id": 4,
+                "nombre": "producto tienda 04 vendedor 01",
+                "descripcion": "descripción para producto 04",
+                "imagen_url": "url/imagen_producto_04",
+                "precio": 450
+            }
+        ]
+    }, 
     {
-        "id": 2,
-        "nombre": "producto tienda 02",
-        "descripcion": "descripción para producto 02",
-        "precio": 275
-    },
+        "id_vendedor": 2, 
+        "nombre": "nombre vendedor 02", 
+        "productos": [
+            {
+                "id": 1,
+                "nombre": "producto tienda 01 vendedor 02",
+                "descripcion": "descripción para producto 01",
+                "imagen_url": "url/imagen_producto_01",
+                "precio": 100
+            },
+            {
+                "id": 2,
+                "nombre": "producto tienda 02 vendedor 02",
+                "descripcion": "descripción para producto 02",
+                "imagen_url": "url/imagen_producto_02",
+                "precio": 275
+            },
+            {
+                "id": 3,
+                "nombre": "producto tienda 03 vendedor 02",
+                "descripcion": "descripción para producto 03",
+                "imagen_url": "url/imagen_producto_03",
+                "precio": 120
+            },
+            {
+                "id": 4,
+                "nombre": "producto tienda 04 vendedor 02",
+                "descripcion": "descripción para producto 04",
+                "imagen_url": "url/imagen_producto_04",
+                "precio": 450
+            }
+        ]
+    }, 
     {
-        "id": 3,
-        "nombre": "producto tienda 03",
-        "descripcion": "descripción para producto 03",
-        "precio": 120
-    },
-    {
-        "id": 4,
-        "nombre": "producto tienda 04",
-        "descripcion": "descripción para producto 04",
-        "precio": 450
+        "id_vendedor": 3, 
+        "nombre": "nombre vendedor 03", 
+        "productos": [
+            {
+                "id": 1,
+                "nombre": "producto tienda 01 vendedor 03",
+                "descripcion": "descripción para producto 01",
+                "imagen_url": "url/imagen_producto_01",
+                "precio": 100
+            },
+            {
+                "id": 2,
+                "nombre": "producto tienda 02 vendedor 03",
+                "descripcion": "descripción para producto 02",
+                "imagen_url": "url/imagen_producto_02",
+                "precio": 275
+            },
+            {
+                "id": 3,
+                "nombre": "producto tienda 03 vendedor 03",
+                "descripcion": "descripción para producto 03",
+                "imagen_url": "url/imagen_producto_03",
+                "precio": 120
+            },
+            {
+                "id": 4,
+                "nombre": "producto tienda 04 vendedor 03",
+                "descripcion": "descripción para producto 04",
+                "imagen_url": "url/imagen_producto_04",
+                "precio": 450
+            }
+        ]
     }
 ]
