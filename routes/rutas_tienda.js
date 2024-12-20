@@ -1,24 +1,27 @@
 import { Router } from "express";
 //import { readJSON } from "../archivos_utiles/utils.js";   // obtenemos readJSON desde utils.js
 import { TiendaController } from "../controllers/controlador_tienda.js";
+import { verificar_token } from "./jwt_verify.js";
+
+//import jwt from "jsonwebtoken";
 
 //const datosTienda = readJSON("../datos_locales/datos_tienda_01.json");
 
 
 export const tiendaRouter = Router();
 
-tiendaRouter.get("/traer_todo", TiendaController.getAll);
-tiendaRouter.get("/traer_por_vendedor/:id", TiendaController.getByIdVendedor);
 
- tiendaRouter.post("/nuevo_producto", TiendaController.create);
+tiendaRouter.get("/traer_todo", verificar_token, TiendaController.getAll);
+tiendaRouter.get("/traer_por_vendedor/:id", verificar_token, TiendaController.getByIdVendedor);
+
+ tiendaRouter.post("/nuevo_producto", verificar_token, TiendaController.create);
 
 // tiendaRouter.get("/:id", TiendaController.getById);
 // tiendaRouter.delete("/:id", TiendaController.delete);
 // tiendaRouter.patch("/:id", TiendaController.update);
 
 
-
-tiendaRouter.get("/datos_prueba", (req, res) => {
+tiendaRouter.get("/datos_prueba", verificar_token, (req, res) => {
     res.json({ datos_prueba: "texto de prueba para tiendaRouter" });
 });
 

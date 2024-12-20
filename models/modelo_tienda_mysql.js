@@ -1,6 +1,7 @@
-import mysql from "mysql2/promise";
+//import mysql from "mysql2/promise";
+import dbconexion from "./conexion_db.js";
 
-
+/*
 const datos_conexion_db_local = {
     host: "localhost",
     user: "root",
@@ -10,6 +11,7 @@ const datos_conexion_db_local = {
 };
 
 const conexiondb = await mysql.createConnection(datos_conexion_db_local);
+*/
 
 export class TiendaModel {
 
@@ -22,7 +24,7 @@ export class TiendaModel {
 
             const categoriaLowerCase = categoria.toLowerCase();
 
-            const [productosPorCategoria] = await conexiondb.query(
+            const [productosPorCategoria] = await dbconexion.query(
                 "SELECT productos.*, categorias_02.* FROM productos "
                 + "INNER JOIN prod_cat_02 ON productos.id = prod_cat_02.producto_id "
                 + "INNER JOIN categorias_02 ON categorias_02.id_cat = prod_cat_02.categoria_id "
@@ -32,7 +34,7 @@ export class TiendaModel {
             return productosPorCategoria;
 
         } else {
-            const [todosLosProductos] = await conexiondb.query(
+            const [todosLosProductos] = await dbconexion.query(
                 "SELECT * FROM productos;"
             );
 
@@ -56,7 +58,7 @@ export class TiendaModel {
 
         try {
 
-            await conexiondb.query(
+            await dbconexion.query(
                 "INSERT INTO productos (nombre, descripcion, imagen_url, precio, cantidad) "
                 + "values (?, ?, ?, ?, ?);",
                 [nombre, descripcion, imagen_url, precio, cantidad]);
@@ -65,7 +67,7 @@ export class TiendaModel {
 
             // obtenemos el id del producto ingresado.
 
-            const [datos_producto_nuevo] = await conexiondb.query(
+            const [datos_producto_nuevo] = await dbconexion.query(
                 "SELECT * FROM productos WHERE nombre=?;",
                 [nombre]);
            
