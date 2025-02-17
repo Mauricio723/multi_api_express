@@ -8,7 +8,9 @@ const datos_conexion_db_local = {
     database: "multiapidb"
 };
 
- const dbconection = await mysql.createConnection(datos_conexion_db_local);
- 
- export default dbconection;
+
+const dbconection = await mysql.createConnection(datos_conexion_db_local);
+
+
+export default dbconection;
 

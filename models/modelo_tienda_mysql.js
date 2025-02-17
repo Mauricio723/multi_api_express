@@ -1,18 +1,6 @@
 //import mysql from "mysql2/promise";
 import dbconexion from "./conexion_db.js";
 
-/*
-const datos_conexion_db_local = {
-    host: "localhost",
-    user: "root",
-    port: 3306,
-    password: "mauriciosql",
-    database: "multiapidb"
-};
-
-const conexiondb = await mysql.createConnection(datos_conexion_db_local);
-*/
-
 export class TiendaModel {
 
     static async getAll({ categoria }) {
@@ -39,12 +27,16 @@ export class TiendaModel {
             );
 
             return todosLosProductos;
-
         }
 
-        //return datosProductos;
-    };
+    }
 
+    static async getByIdProducto(id) {
+
+        const [datos_producto] = await dbconexion.query("SELECT * FROM productos WHERE id=?;", [id]);
+
+        return datos_producto; 
+    }
 
     static async create({ input }) {
         const {
@@ -87,18 +79,8 @@ export class TiendaModel {
             query_productos_categorias += ";"
 
 
-            await conexiondb.query(query_productos_categorias, datos_values);
-
-            //const [datos_categorias] = await conexiondb.query("SELECT nombre FROM categorias;");
-
-            /*
-            const producto_nuevo_categorias = conexiondb.query(
-                "SELECT productos.nombre, categorias.nombre FROM productos_categorias "
-                + "INNER JOIN productos ON productos_categorias.producto_id = productos.id "
-                + "INNER JOIN categorias ON productos_categorias.categoria_id = categorias.id;"
-            );
-            */
-
+            await dbconexion.query(query_productos_categorias, datos_values);
+         
             return datos_producto_nuevo;
 
 
@@ -107,5 +89,49 @@ export class TiendaModel {
         }
 
     }
+
+    static async update (id_producto,  datos_nuevos) {
+                
+        await dbconexion.query(`UPDATE productos SET nombre = ?, descripcion = ?, 
+            imagen_url = ?, precio = ?, cantidad = ? WHERE id = ?;`, 
+            [datos_nuevos.nombre, datos_nuevos.descripcion, datos_nuevos.imagen_url, datos_nuevos.precio, 
+                datos_nuevos.cantidad, id_producto]
+        );
+              
+        return datos_nuevos;
+
+    }
+
+    static async update_campo (id_producto, dato_campo) {
+
+        let nombre_campo = Object.keys(dato_campo);
+        let clave_campo = nombre_campo[0];
+        let valor_campo = dato_campo[clave_campo];
+
+        const string_query = "UPDATE productos SET " + clave_campo + " = ? WHERE id = ?;";
+
+        await dbconexion.query(string_query, [valor_campo, id_producto]);
+
+        return "se modificó el campo: " + clave_campo + " con el valor: " + valor_campo;
+
+    }
+     
+   static async agregar_imagen_producto (id_producto, url_imagen) {
+    
+    return "datos agregados al producto: " + id_producto + " - " + url_imagen;
+
+   }
+
+   static async prueba_update_producto (id_producto, producto) {
+   
+    console.log("url_img: ", producto);
+    
+    console.log("id_producto: ", id_producto);
+
+    //await dbconexion.query("UPDATE productos SET imagen_url = ? WHERE id = ?;", [url_img_nueva, id_producto]);
+
+    return "la url de la imagen se modificó exitosamente";
+
+   }
 
 }
