@@ -38,6 +38,13 @@ export class TiendaModel {
         return datos_producto; 
     }
 
+    static async obtenerUrlImagen(id_producto) {
+        const [url_imagen] = await dbconexion.query("SELECT imagen_url FROM productos WHERE id=?;", [id_producto]);
+        return url_imagen;
+    }
+
+   
+
     static async create({ input }) {
         const {
             nombre,
@@ -102,7 +109,7 @@ export class TiendaModel {
 
     }
 
-    static async update_campo (id_producto, dato_campo) {
+    static async modificar_campo_producto (id_producto, dato_campo) {
 
         let nombre_campo = Object.keys(dato_campo);
         let clave_campo = nombre_campo[0];
@@ -116,9 +123,12 @@ export class TiendaModel {
 
     }
      
-   static async agregar_imagen_producto (id_producto, url_imagen) {
     
-    return "datos agregados al producto: " + id_producto + " - " + url_imagen;
+   static async modificar_imagen_producto (id_producto, url_imagen) {
+
+    await dbconexion.query("UPDATE productos SET imagen_url = ? WHERE id = ?;", [url_imagen, id_producto]);
+    
+    return "Se modificó la imagen: " + id_producto + " - " + url_imagen;
 
    }
 

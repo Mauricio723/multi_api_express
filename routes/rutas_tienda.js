@@ -33,19 +33,22 @@ tiendaRouter.patch("/prueba_modificar_producto/:id_producto", TiendaController.p
 
 tiendaRouter.patch("/modificar_campo_producto/:id_producto", TiendaController.modificar_campo_producto);
 
-tiendaRouter.post("/modificar_imagen_producto/:id_producto", upload, TiendaController.modificarImagenProducto);
+
+tiendaRouter.patch("/modificar_imagen_producto/:id_producto", upload, TiendaController.modificarImagenProducto);
+
 
 tiendaRouter.post("/subir_imagen/:id_producto", upload, TiendaController.subirImagen);
 
 tiendaRouter.delete("/eliminar_imagen", TiendaController.eliminar_imagen);
 
+
 tiendaRouter.get("/ver_imagenes_disponibles", TiendaController.ver_imagenes_por_carpeta);
+
 
 tiendaRouter.post("/mostrar_datos_imagen", TiendaController.mostrar_datos_imagen);
 
 
 tiendaRouter.get("/datos_prueba", (req, res) => {
-
     res.json({ datos_prueba: "texto de prueba para tiendaRouter" });
 });
 

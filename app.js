@@ -1,6 +1,8 @@
 import express from "express";
 import { userRouter } from "./routes/rutas_usuarios.js";
 import { tiendaRouter } from "./routes/rutas_tienda.js";
+import { imgAdminRouter } from "./routes/rutas_img_admin.js";
+
 import cors from "cors";
 
 //import { createTiendaRouter } from "./routes/rutas_tienda.js"
@@ -29,6 +31,8 @@ app.use(cors({
 app.use("/usuarios", userRouter); 
 
 app.use("/tienda", tiendaRouter);
+
+app.use("/imagenes", imgAdminRouter);
 
 const PORT = process.env.PORT ?? 3005;
 

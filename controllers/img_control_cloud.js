@@ -59,9 +59,17 @@ const eliminarImagen = async (public_id) => {
     }
 };
 
-const verImagenesDisponibles = async () => {
+const mostrarCarpetasCloudinary = async () => {
+    const carpetas_cloudinary = cloudinary.v2.api.root_folders().then(result => {
+        return result;
+    });
 
-    const datos_cloudinary = await cloudinary.v2.api.resources_by_asset_folder("TiendaVilma01", function (error, result) {
+    return carpetas_cloudinary;
+};
+
+const verImagenesDisponibles = async (nombre_carpeta) => {
+
+    const datos_cloudinary = await cloudinary.v2.api.resources_by_asset_folder(nombre_carpeta, function (error, result) {
         if (error) {
             console.error("Error al obtener recursos: ", error);
             return { error: error };
@@ -88,4 +96,4 @@ const mostrarDatosImagen = async (id_imagen) => {
    
 };
 
-export { uploadImage, eliminarImagen, verImagenesDisponibles, mostrarDatosImagen };
+export { uploadImage, eliminarImagen, mostrarCarpetasCloudinary, verImagenesDisponibles, mostrarDatosImagen };
